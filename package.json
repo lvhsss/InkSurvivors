@@ -9,8 +9,5 @@
     "design:assets": "node assets/design.mjs",
     "preview:assets": "node assets/preview.mjs"
   },
-  "dependencies": {
-    "next": "^15.0.0"
-  },
   "packageManager": "pnpm@9.15.4"
 }
