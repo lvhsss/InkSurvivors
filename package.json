@@ -1,0 +1,13 @@
+{
+  "name": "graveshift",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "build:assets": "node assets/build.mjs",
+    "design:assets": "node assets/design.mjs",
+    "preview:assets": "node assets/preview.mjs"
+  },
+  "packageManager": "pnpm@9.15.4"
+}

@@ -1,0 +1,46 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+evm_version = "cancun"
+gas_limit = 30000000
+optimizer = true
+optimizer_runs = 200
+solc_version = "0.8.24"
+via_ir = false
+remappings = [
+    "erc721a/=lib/ERC721A/contracts/",
+    "forge-std/=lib/forge-std/src/",
+    "assets/=../assets/",
+]
+fs_permissions = [
+    { access = "read", path = "./" },
+    { access = "write", path = "./artifacts" },
+]
+
+# Pre-deployed library addresses on Ethereum mainnet (chain 1) from the partial
+# mainnet deploy on 2026-05-20. Forge links to these instead of re-deploying.
+libraries = [
+    "assets/AssetsHead.sol:AssetsHead:0x8B6Af4C42Ba16825648631FA153f95CF166BF08b",
+    "assets/AssetsOneOfOneA.sol:AssetsOneOfOneA:0x96D5c82d83C1b2164C29A0667e49fE7d18CdfFd0",
+    "assets/AssetsOneOfOneB.sol:AssetsOneOfOneB:0xE56D5aF17ECF10f1cd41471eF48C9065f557Bf83",
+    "assets/AssetsHand.sol:AssetsHand:0xe0471f443445cb1429dAF4b4F17595a5ED6aBD01",
+    "assets/AssetsSkin.sol:AssetsSkin:0x83257b46e3b8BdBA9872A21Ace271Dc071ad102b",
+]
+[fmt]
+line_length = 120
+tab_width = 4
+bracket_spacing = false
+
+[rpc_endpoints]
+mainnet = "${MAINNET_RPC_URL}"
+sepolia = "${SEPOLIA_RPC_URL}"
+base_sepolia = "${BASE_SEPOLIA_RPC_URL}"
+ink_sepolia = "https://rpc-gel-sepolia.inkonchain.com"
+anvil = "http://127.0.0.1:8545"
+
+[etherscan]
+mainnet = { key = "${ETHERSCAN_API_KEY}", url = "https://api.etherscan.io/api" }
+sepolia = { key = "${ETHERSCAN_API_KEY}", url = "https://api-sepolia.etherscan.io/api" }
+base_sepolia = { key = "${BASESCAN_API_KEY}", url = "https://api-sepolia.basescan.org/api" }
+ink_sepolia = { key = "empty", url = "https://explorer-sepolia.inkonchain.com/api" }

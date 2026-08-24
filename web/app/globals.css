@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+  color-scheme: dark;
+  --paper: #0e0e0e;
+  --cream: #0f0f0f;
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --edge: #1a1a1a;
+  --rune: #ba1aff;
+  --bg: #0a0a0a;
+  --fg: #0c0c0c;
+  --accent: #b700ff;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100%;
+  font-family: "VT323", monospace;
+}
+
+::selection {
+  background: var(--rune);
+  color: #ffffff;
+}
+
+.pixelated svg {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  width: 100%;
+  height: 100%;
+}
+
+/* MS-Paint style 1px black border on a soft cream card. */
+.crt-card {
+  background: var(--cream);
+  border: 1px solid var(--edge);
+  box-shadow: 4px 4px 0 var(--edge);
+}
+
+.pixel-border {
+  border: 1px solid var(--edge);
+  background: var(--paper);
+}
+
+.pixel-border-soft {
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  background: var(--paper);
+}
+
+.heading-pixel {
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 0.05em;
+}
+
+/* Solid primary CTA — orange fill, black 1px border, black drop-shadow nub. */
+.btn-primary {
+  background: var(--rune);
+  color: #1a1a1a;
+  border: 1px solid var(--edge);
+  box-shadow: 3px 3px 0 var(--edge);
+  transition: transform 80ms ease, box-shadow 80ms ease, background 120ms ease;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #ffa040;
+}
+.btn-primary:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--edge);
+}
+.btn-primary:disabled {
+  background: #e9e9e9;
+  color: #999999;
+  box-shadow: 3px 3px 0 rgba(26, 26, 26, 0.25);
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--edge);
+  transition: background 120ms ease;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--cream);
+}
+
+/* MIN-33 dark preview — moon glow pulse + drifting cloud */
+@keyframes moon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 18px rgba(255, 138, 26, 0.4)); transform: translateY(0); }
+  50%      { filter: drop-shadow(0 0 32px rgba(255, 138, 26, 0.65)); transform: translateY(-2px); }
+}
+.animate-moon-pulse { animation: moon-pulse 6s ease-in-out infinite; }
+
+@keyframes mist-drift {
+  0%   { transform: translateX(0); opacity: 0.4; }
+  50%  { transform: translateX(-30px); opacity: 0.6; }
+  100% { transform: translateX(0); opacity: 0.4; }
+}
+.animate-mist-drift { animation: mist-drift 14s ease-in-out infinite; }

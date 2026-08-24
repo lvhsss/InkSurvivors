@@ -1,0 +1,6 @@
+cache/
+out/
+broadcast/*/anvil-hardhat/
+broadcast/*/run-latest.json
+.env
+.local/
